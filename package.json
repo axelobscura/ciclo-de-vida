@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --openssl-legacy-provider",
-    "build": "next build",
-    "start": "next start --openssl-legacy-provider"
+    "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
+    "build": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next build",
+    "start": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next start"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
+    "cross-env": "^7.0.3",
     "final-form": "^4.20.2",
     "formik": "^2.2.6",
     "next": "10.2.0",
