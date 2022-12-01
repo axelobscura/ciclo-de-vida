@@ -5,6 +5,7 @@ import styles from "../styles/styles.module.scss";
 import FormCard from "../components/FormCard";
 import {
   BillingInfo,
+  Clima,
   ConfirmPurchase,
   PersonalInfo
 } from "../components/Forms";
@@ -16,6 +17,8 @@ const App = () => {
   const nextFormStep = () => setFormStep((currentStep) => currentStep + 1);
 
   const prevFormStep = () => setFormStep((currentStep) => currentStep - 1);
+
+  console.log(formStep);
 
   return (
     <div className={styles.container}>
@@ -33,8 +36,11 @@ const App = () => {
         {formStep >= 2 && (
           <ConfirmPurchase formStep={formStep} nextFormStep={nextFormStep} />
         )}
-
-        {formStep > 2 && <FormCompleted />}
+        {formStep >= 3 && (
+          <Clima formStep={formStep} nextFormStep={nextFormStep} />
+        )}
+        
+        {formStep > 4 && <FormCompleted />}
       </FormCard>
     </div>
   );

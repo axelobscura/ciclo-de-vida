@@ -5,23 +5,24 @@ import Select from "../Input Fields/Select";
 import { useFormData } from "../../context";
 import * as yup from "yup";
 
-const schema = yup.object().shape({
-  checkbox: yup.bool().oneOf([true], "Checkbox is required"),
-});
 
 export default function ConfirmPurchase({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
   const formRef = useRef();
 
   async function handleSubmit(data) {
+    console.log(data);
     try {
+      /*
       formRef.current.setErrors({});
 
       await schema.validate(data, {
         abortEarly: false,
       });
       // Validation passed - do something with data
+      
       setFormValues(data);
+      */
       nextFormStep();
     } catch (err) {
       const errors = {};
@@ -43,10 +44,10 @@ export default function ConfirmPurchase({ formStep, nextFormStep }) {
 
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className={styles.formRow}>
-          <Select name="checkbox" label="Seleccione su estado:" />
+          <Select name="estado" label="Seleccione su estado:" value="" />
         </div>
 
-        <button type="submit">Confirm purchase</button>
+        <button type="submit">SIGUIENTE</button>
       </Form>
     </div>
   );

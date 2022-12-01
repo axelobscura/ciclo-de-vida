@@ -13,12 +13,12 @@ const schema = yup.object().shape({
     .required("Address is required"),
 });
 
-export default function BillingInfo({ formStep, nextFormStep }) {
+export default function Clima({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
   const formRef = useRef();
 
   async function handleSubmit(data) {
-    console.log(data);
+    /*
     try {
       formRef.current.setErrors({});
 
@@ -40,17 +40,20 @@ export default function BillingInfo({ formStep, nextFormStep }) {
         formRef.current.setErrors(errors);
       }
     }
+    */
   }
 
   return (
-    <div className={formStep === 1 ? styles.showForm : styles.hideForm}>
-      <h2>¿Quieres construir una casa o reacondicionar una casa?</h2>
+    <div className={formStep === 3 ? styles.showForm : styles.hideForm}>
+      <h2>¿Conoces tu clima?</h2>
 
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className={styles.formRow}>
           <div className={styles.preguntas}>
-            <CheckBox name="address" label="Construir" value="Construir" />
-            <CheckBox name="address" label="Reacondicionar" value="Reacondicionar" />
+            <CheckBox name="address" label="Cálido" value="Construir" />
+            <CheckBox name="address" label="Templado" value="Reacondicionar" />
+            <CheckBox name="address" label="Seco" value="Reacondicionar" />
+            <CheckBox name="address" label="Húmedo" value="Reacondicionar" />
           </div>
           {/*
           <Input name="address" label="Construir" type="address" />

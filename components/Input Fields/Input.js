@@ -19,7 +19,7 @@ const Input = ({ name, label, ...rest }) => {
 
   return (
     <>
-      <label htmlFor={fieldName}>{label}</label>
+      <label htmlFor={fieldName} style={{'margin':'20px 0'}}>{label}</label>
       <input
         id={fieldName}
         ref={inputRef}
