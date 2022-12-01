@@ -48,8 +48,8 @@ export default function BillingInfo({ formStep, nextFormStep }) {
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className={styles.formRow}>
           <div className={styles.preguntas}>
-            <CheckBox name="checkbox" label="Construir" />
-            <CheckBox name="checkbox" label="Reacondicionar" />
+            <CheckBox name="address" label="Construir" value="Construir" />
+            <CheckBox name="address" label="Reacondicionar" value="Reacondicionar" />
           </div>
           {/*
           <Input name="address" label="Construir" type="address" />

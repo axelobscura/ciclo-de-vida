@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import styles from "../../styles/styles.module.scss";
 import { Form } from "@unform/web";
-import CheckBox from "../Input Fields/CheckBox";
+import Select from "../Input Fields/Select";
 import { useFormData } from "../../context";
 import * as yup from "yup";
 
@@ -39,11 +39,11 @@ export default function ConfirmPurchase({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 2 ? styles.showForm : styles.hideForm}>
-      <h2>Confirm Purchase</h2>
+      <h2>¿A qué estado de la república perteneces?</h2>
 
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className={styles.formRow}>
-          <CheckBox name="checkbox" label="Ready to go?" />
+          <Select name="checkbox" label="Seleccione su estado:" />
         </div>
 
         <button type="submit">Confirm purchase</button>
