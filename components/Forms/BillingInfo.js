@@ -2,6 +2,7 @@ import { useRef } from "react";
 import styles from "../../styles/styles.module.scss";
 import { Form } from "@unform/web";
 import Input from "../Input Fields/Input";
+import CheckBox from "../Input Fields/CheckBox";
 import { useFormData } from "../../context";
 import * as yup from "yup";
 
@@ -42,13 +43,20 @@ export default function BillingInfo({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 1 ? styles.showForm : styles.hideForm}>
-      <h2>Billing Info</h2>
+      <h2>¿Quieres construir una casa o reacondicionar una casa?</h2>
 
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className={styles.formRow}>
-          <Input name="address" label="Address" type="address" />
+          <div className={styles.preguntas}>
+            <CheckBox name="checkbox" label="Construir" />
+            <CheckBox name="checkbox" label="Reacondicionar" />
+          </div>
+          {/*
+          <Input name="address" label="Construir" type="address" />
+          <Input name="address" label="Reacondicionar" type="address" />
+          */}
         </div>
-        <button type="submit">Next</button>
+        <button type="submit">SIGUIENTE</button>
       </Form>
     </div>
   );

@@ -6,7 +6,7 @@ import { useFormData } from "../../context";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  email: yup.string().email().required("Email is required")
+  email: yup.string().email().required("Correo electrónico necesario")
 });
 
 export default function PersonalInfo({ formStep, nextFormStep }) {
@@ -40,14 +40,11 @@ export default function PersonalInfo({ formStep, nextFormStep }) {
   return (
     <div className={formStep === 0 ? styles.showForm : styles.hideForm}>
       <h1>DISEÑANDO MI CASA</h1>
-      <p>
-        <small>Instituto Mexicano del Cemento y del Concreto A.C.</small>
-      </p>
-      <Form ref={formRef} onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={handleSubmit} style={{'textAlign':'left'}}>
         <div className={styles.formRow}>
-          <Input name="email" label="Email" type="email" />
+          <Input name="email" label="Correo electrónico:" type="email" />
         </div>
-        <button type="submit">Next</button>
+        <button type="submit">SIGUIENTE</button>
       </Form>
     </div>
   );
