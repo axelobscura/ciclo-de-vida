@@ -25,13 +25,14 @@ export default function Checkbox({ name, value, label, ...rest }) {
   }, [defaultValue, fieldName, registerField, defaultChecked]);
 
   return (
-    <div>
+    <div className={styles.elchecker}>
       <label htmlFor={fieldName} key={fieldName}>
         <input
-          defaultChecked={defaultChecked}
+          //defaultChecked={defaultChecked}
           ref={inputRef}
-          type="checkbox"
+          type="radio"
           id={fieldName}
+          name={fieldName}
           {...rest}
         />
         {label}
