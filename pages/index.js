@@ -6,6 +6,8 @@ import FormCard from "../components/FormCard";
 import {
   BillingInfo,
   Clima,
+  Planta,
+  Luz,
   ConfirmPurchase,
   PersonalInfo
 } from "../components/Forms";
@@ -13,13 +15,9 @@ import FormCompleted from "../components/FormCompleted";
 
 const App = () => {
   const [formStep, setFormStep] = useState(0);
-
   const nextFormStep = () => setFormStep((currentStep) => currentStep + 1);
-
   const prevFormStep = () => setFormStep((currentStep) => currentStep - 1);
-
   console.log(formStep);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -39,8 +37,14 @@ const App = () => {
         {formStep >= 3 && (
           <Clima formStep={formStep} nextFormStep={nextFormStep} />
         )}
+        {formStep >= 4 && (
+          <Planta formStep={formStep} nextFormStep={nextFormStep} />
+        )}
+        {formStep >= 5 && (
+          <Luz formStep={formStep} nextFormStep={nextFormStep} />
+        )}
         
-        {formStep > 4 && <FormCompleted />}
+        {formStep > 6 && <FormCompleted />}
       </FormCard>
     </div>
   );
