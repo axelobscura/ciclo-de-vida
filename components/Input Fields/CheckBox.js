@@ -2,15 +2,16 @@ import { useEffect, useRef } from "react";
 import { useField } from "@unform/core";
 import styles from "../../styles/styles.module.scss";
 
-export default function Checkbox({ name, value, label, ...rest }) {
+export default function Checkbox({ name, label, value, ...rest }) {
   const inputRef = useRef();
-  const { fieldName, defaultValue, registerField, error } = useField(name);
+  const { fieldName, fieldValue, defaultValue, registerField, error } = useField(name);
 
   const defaultChecked = defaultValue === value;
 
   useEffect(() => {
     registerField({
       name: fieldName,
+      value: fieldValue,
       ref: inputRef,
       getValue: (ref) => {
         return ref.current.checked;
@@ -22,17 +23,18 @@ export default function Checkbox({ name, value, label, ...rest }) {
         ref.current.checked = value;
       },
     });
-  }, [defaultValue, fieldName, registerField, defaultChecked]);
+  }, [defaultValue, fieldName, fieldValue, registerField, defaultChecked]);
 
   return (
     <div className={styles.elchecker}>
       <label htmlFor={fieldName} key={fieldName}>
         <input
-          //defaultChecked={defaultChecked}
+          defaultChecked={defaultChecked}
           ref={inputRef}
           type="radio"
           id={fieldName}
           name={fieldName}
+          value={value}
           {...rest}
         />
         {label}
