@@ -10,7 +10,13 @@ import {
   Luz,
   ConfirmPurchase,
   PersonalInfo,
-  TipoAhorro
+  TipoAhorro,
+  Kilowatts,
+  Radiacion,
+  Personas,
+  Predio,
+  Acceso,
+  Arboles
 } from "../components/Forms";
 import FormCompleted from "../components/FormCompleted";
 
@@ -47,8 +53,26 @@ const App = () => {
         {formStep >= 6 && (
           <TipoAhorro formStep={formStep} nextFormStep={nextFormStep} />
         )}
+        {formStep >= 7 && (
+          <Kilowatts formStep={formStep} nextFormStep={nextFormStep} />
+        )}
+        {formStep >= 8 && (
+          <Radiacion formStep={formStep} nextFormStep={nextFormStep} />
+        )}
+        {formStep >= 9 && (
+          <Personas formStep={formStep} nextFormStep={nextFormStep} />
+        )}
+        {formStep >= 10 && (
+          <Predio formStep={formStep} nextFormStep={nextFormStep} />
+        )}
+        {formStep >= 11 && (
+          <Acceso formStep={formStep} nextFormStep={nextFormStep} />
+        )}
+        {formStep >= 12 && (
+          <Arboles formStep={formStep} nextFormStep={nextFormStep} />
+        )}
         
-        {formStep > 7 && <FormCompleted />}
+        {formStep > 12 && <FormCompleted />}
       </FormCard>
     </div>
   );

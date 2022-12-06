@@ -6,7 +6,7 @@ import { useFormData } from "../../context";
 import * as yup from "yup";
 
 
-export default function ConfirmPurchase({ formStep, nextFormStep }) {
+export default function Radiacion({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
   const formRef = useRef();
 
@@ -39,11 +39,11 @@ export default function ConfirmPurchase({ formStep, nextFormStep }) {
   }
 
   return (
-    <div className={formStep === 2 ? styles.showForm : styles.hideForm}>
-      <h2>¿A qué estado de la república perteneces?</h2>
+    <div className={formStep === 8 ? styles.showForm : styles.hideForm}>
+      <h2>Ingresa el rango de radiación media diaria</h2>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className={styles.formRow}>
-          <Select name="estado" label="Seleccione su estado:" value="" />
+          <Select name="radiacion" label="Seleccione su radiación media:" value="" />
         </div>
         <button type="submit">SIGUIENTE</button>
       </Form>

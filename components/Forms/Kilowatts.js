@@ -1,17 +1,23 @@
 import { useRef } from "react";
 import styles from "../../styles/styles.module.scss";
 import { Form } from "@unform/web";
-import Select from "../Input Fields/Select";
+import Input from "../Input Fields/Input";
 import { useFormData } from "../../context";
 import * as yup from "yup";
 
+const schema = yup.object().shape({
+  planta: yup
+    .string()
+    .min(2, "Address is too short")
+    .required("Address is required"),
+});
 
-export default function ConfirmPurchase({ formStep, nextFormStep }) {
+export default function Kilowatts({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
   const formRef = useRef();
 
   async function handleSubmit(data) {
-    console.log(data);
+    
     try {
       /*
       formRef.current.setErrors({});
@@ -20,7 +26,6 @@ export default function ConfirmPurchase({ formStep, nextFormStep }) {
         abortEarly: false,
       });
       // Validation passed - do something with data
-      
       setFormValues(data);
       */
       nextFormStep();
@@ -36,14 +41,17 @@ export default function ConfirmPurchase({ formStep, nextFormStep }) {
         formRef.current.setErrors(errors);
       }
     }
+    
   }
 
   return (
-    <div className={formStep === 2 ? styles.showForm : styles.hideForm}>
-      <h2>¿A qué estado de la república perteneces?</h2>
+    <div className={formStep === 7 ? styles.showForm : styles.hideForm}>
+      <h2>Ingresa los Kilowatts (kWh) de tu último recibo de luz</h2>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className={styles.formRow}>
-          <Select name="estado" label="Seleccione su estado:" value="" />
+          <div className={styles.preguntas}>
+            <Input name="kilowatts" label="Ingresa los Kilowatts" type="number" />
+          </div>
         </div>
         <button type="submit">SIGUIENTE</button>
       </Form>
