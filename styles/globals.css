@@ -87,3 +87,22 @@ h3.resulta {
 span.azul {
   color: #aab4b8;
 }
+
+.resultados {
+  display: flex;
+}
+
+.resultados h3 {
+  color: #fff;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.resultados .topa {
+  display: flex;
+  margin: 5px 10px;
+}
+
+.resultados .topa .rst {
+  margin: 0 20px;
+}
