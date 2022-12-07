@@ -8,13 +8,11 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   height: 100vh;
   background: #22223b;
-  /*
-  background: url(/bkg.jpg) no-repeat center center fixed; 
+  background: url(/SECO-CON-LLUVIAS.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  */
 }
 
 .calculadora {
@@ -83,6 +81,7 @@ body {
 
 h3.resulta {
   color: #fff;
+  margin-bottom: 30px;
 }
 
 span.azul {
