@@ -56,23 +56,25 @@ const App = () => {
         {formStep >= 7 && (
           <Kilowatts formStep={formStep} nextFormStep={nextFormStep} />
         )}
+        {/* 
         {formStep >= 8 && (
           <Radiacion formStep={formStep} nextFormStep={nextFormStep} />
         )}
         {formStep >= 9 && (
           <Personas formStep={formStep} nextFormStep={nextFormStep} />
         )}
-        {formStep >= 10 && (
+        */}
+        {formStep >= 8 && (
           <Predio formStep={formStep} nextFormStep={nextFormStep} />
         )}
-        {formStep >= 11 && (
+        {formStep >= 9 && (
           <Acceso formStep={formStep} nextFormStep={nextFormStep} />
         )}
-        {formStep >= 12 && (
+        {formStep >= 10 && (
           <Arboles formStep={formStep} nextFormStep={nextFormStep} />
         )}
         
-        {formStep > 12 && <FormCompleted />}
+        {formStep > 10 && <FormCompleted />}
       </FormCard>
     </div>
   );

@@ -7,9 +7,9 @@ export default function FormCard({ children, currentStep, prevFormStep }) {
         <img src="http://www.imcyc.net/wp-content/uploads/2017/04/logo_imcyc.png" alt="imcyc" title="imcyc" />
         <p style={{'padding':'15px 0'}}><small>Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
       </div>
-      {currentStep < 12 && (
+      {currentStep < 10 && (
         <>
-          <span className={styles.steps} style={{'marginBottom':'30px'}}>Paso {currentStep + 1} de 12</span>
+          <span className={styles.steps} style={{'marginBottom':'30px'}}>Paso {currentStep + 1} de 10</span>
           {currentStep > 0 && (
             <button
               className={styles.back}

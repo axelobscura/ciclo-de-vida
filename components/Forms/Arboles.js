@@ -46,7 +46,7 @@ export default function Arboles({ formStep, nextFormStep }) {
   }
 
   return (
-    <div className={formStep === 12 ? styles.showForm : styles.hideForm}>
+    <div className={formStep === 10 ? styles.showForm : styles.hideForm}>
       <h2>¿Podrías tener árboles?</h2>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className={styles.formRow}>

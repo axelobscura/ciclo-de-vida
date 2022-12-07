@@ -46,7 +46,7 @@ export default function Acceso({ formStep, nextFormStep }) {
   }
 
   return (
-    <div className={formStep === 11 ? styles.showForm : styles.hideForm}>
+    <div className={formStep === 9 ? styles.showForm : styles.hideForm}>
       <h2>¿Sabes hacia dónde está orientado el acceso?</h2>
 
       <Form ref={formRef} onSubmit={handleSubmit}>

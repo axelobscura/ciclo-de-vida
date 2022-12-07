@@ -8,9 +8,83 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   height: 100vh;
   background: #22223b;
+  /*
   background: url(/bkg.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  */
+}
+
+.calculadora {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.calculadora div {
+  flex: 1 0;
+  padding: 10px;
+  text-align: left;
+  align-items: end;
+}
+
+.img-responsive {
+  width: 100%;
+}
+
+.calculadora h3 {
+  color: #fff;
+  padding: 5px 0;
+  padding-top: 0;
+}
+
+.calculadora h4 {
+  color: #fff;
+}
+
+.calculadora label.mio {
+  padding-left: 0 !important;
+  margin-left: 0;
+  margin-top: 0px;
+  font-size: 1rem;
+}
+
+.calculadora input {
+  width: 90%;
+}
+
+.calculadora select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid rgba(29, 53, 87, 0.8);
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    padding-left: 0.7rem;
+    font-size: 1rem;
+}
+
+.regate {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.regate div {
+  padding: 0 10px;
+}
+
+.regate button {
+  font-size: 1rem;
+  background: #0b5e20 !important;
+  margin-top: 20px;
+}
+
+h3.resulta {
+  color: #fff;
+}
+
+span.azul {
+  color: #aab4b8;
 }

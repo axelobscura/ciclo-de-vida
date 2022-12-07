@@ -46,7 +46,7 @@ export default function Predio({ formStep, nextFormStep }) {
   }
 
   return (
-    <div className={formStep === 10 ? styles.showForm : styles.hideForm}>
+    <div className={formStep === 8 ? styles.showForm : styles.hideForm}>
       <h2>¿Cuentas con un predio?</h2>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className={styles.formRow}>
