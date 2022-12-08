@@ -1,18 +1,18 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useFormData } from "../context";
 
 export default function FormCompleted() {
   const [ resultado, setResultado ] = useState(0);
   const [ espesor, setEspesor ] = useState(6);
   const [ planta, setPlanta ] = useState(0);
-  const [ muros, setMuros ] = useState();
+  const [ muros, setMuros ] = useState(50.3);
   const [ resultadoMuros, setResultadoMuros ] = useState(0);
   const { data } = useFormData();
   const formRef = useRef();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.planta.value);
+    //console.log(e.target.planta.value);
     setResultado(resultado * Math.random());
     let areaPlanta = e.target.planta.value;
     let areaPiso = e.target.piso.value;
@@ -21,7 +21,7 @@ export default function FormCompleted() {
     } else {
       setPlanta(areaPlanta * 22.91);
     }
-    setResultadoMuros(areaPiso * muros);
+    setResultadoMuros(parseFloat(areaPiso) * parseFloat(muros));
     setResultado(planta + resultadoMuros)
   }
 
@@ -40,7 +40,7 @@ export default function FormCompleted() {
       <div className="resultados">
         <div className="topa">
           <div className="txt">
-            <h3>EMISIONES DE CO2 DE LA PLANTA PISO:</h3>
+            <h3>EMISIONES DE CO2 DE LA PLANTA:</h3>
           </div>
           <div className="rst">
             <h3>{planta.toFixed(2)} kgCO2e</h3>
@@ -52,7 +52,7 @@ export default function FormCompleted() {
         <div className="topa">
           <div className="txt">
             <h3>EMISIONES DE CO2 DE MUROS:</h3>
-            <p>Tipo de muro: {muros === 50.30 ? 'Ladrillo multiperforado 10x10x28' : 51.60 ? 'Ladrillo multiperforado 10x10x28' : 5.96 ? 'Tablaroca' : 'Durok'}</p>
+            <p>Tipo de muro: {muros}</p>
           </div>
           <div className="rst">
             <h3>{resultadoMuros.toFixed(2)} kgCO2e</h3>
