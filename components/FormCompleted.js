@@ -7,6 +7,7 @@ export default function FormCompleted() {
   const [ planta, setPlanta ] = useState(0);
   const [ muros, setMuros ] = useState(50.3);
   const [ resultadoMuros, setResultadoMuros ] = useState(0);
+  const [ resultadoPisos, setResultadoPisos ] = useState(0);
   const { data } = useFormData();
   const formRef = useRef();
 
@@ -23,6 +24,7 @@ export default function FormCompleted() {
     }
     setResultadoMuros(parseFloat(areaPiso) * parseFloat(muros));
     setResultado(planta + resultadoMuros)
+    setResultadoPisos(planta * 0.78);
   }
 
   const espesores = (e) => {
@@ -52,10 +54,20 @@ export default function FormCompleted() {
         <div className="topa">
           <div className="txt">
             <h3>EMISIONES DE CO2 DE MUROS:</h3>
-            <p>Tipo de muro: {muros}</p>
           </div>
           <div className="rst">
             <h3>{resultadoMuros.toFixed(2)} kgCO2e</h3>
+            <p>Tipo de muro: {muros}</p>
+          </div>
+        </div>
+      </div>
+      <div className="resultados">
+        <div className="topa">
+          <div className="txt">
+            <h3>EMISIONES DE CO2 DE PISOS:</h3>
+          </div>
+          <div className="rst">
+            <h3>{resultadoPisos.toFixed(2)} kgCO2e</h3>
           </div>
         </div>
       </div>
