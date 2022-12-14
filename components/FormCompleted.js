@@ -23,8 +23,8 @@ export default function FormCompleted() {
       setPlanta(areaPlanta * 22.91);
     }
     setResultadoMuros(parseFloat(areaPiso) * parseFloat(muros));
-    setResultado(planta + resultadoMuros)
-    setResultadoPisos(planta * 0.78);
+    setResultado((parseFloat(areaPiso) * parseFloat(muros)) * 2);
+    setResultadoPisos(parseFloat(areaPiso) * parseFloat(muros) * 0.78);
   }
 
   const espesores = (e) => {
@@ -37,44 +37,13 @@ export default function FormCompleted() {
 
   return (
     <>
-      <h2>CALCULADORA DE EMISIONES CO2</h2>
-      <h3 className="resulta">EMISIONES TOTALES DE CO2: <span className="azul">{resultado.toFixed(2)} PARTÍCULAS ANUALES</span></h3>
-      <div className="resultados">
-        <div className="topa">
-          <div className="txt">
-            <h3>EMISIONES DE CO2 DE LA PLANTA:</h3>
-          </div>
-          <div className="rst">
-            <h3>{planta.toFixed(2)} kgCO2e</h3>
-            <p>Espesor del concreto: {espesor}</p>
-          </div>
-        </div>
-      </div>
-      <div className="resultados">
-        <div className="topa">
-          <div className="txt">
-            <h3>EMISIONES DE CO2 DE MUROS:</h3>
-          </div>
-          <div className="rst">
-            <h3>{resultadoMuros.toFixed(2)} kgCO2e</h3>
-            <p>Tipo de muro: {muros}</p>
-          </div>
-        </div>
-      </div>
-      <div className="resultados">
-        <div className="topa">
-          <div className="txt">
-            <h3>EMISIONES DE CO2 DE PISOS:</h3>
-          </div>
-          <div className="rst">
-            <h3>{resultadoPisos.toFixed(2)} kgCO2e</h3>
-          </div>
-        </div>
-      </div>
+      <h2>CALCULADORA DE EMISIONES CO<sub>2</sub> (kgCO<sub>2</sub>e)</h2>
+      <h3 className="resulta" style={{
+        marginBottom: '30px'
+      }}>EMISIONES TOTALES DE CO2: <span className="azul">{resultado.toFixed(2)} PARTÍCULAS ANUALES</span></h3>
+      
       <div className="calculadora">
-        <div>
-          <img src="/SECO-CON-LLUVIAS-PLANO.png" alt="" title="" className="img-responsive" />
-        </div>
+        
         <div>
           <form onSubmit={handleSubmit}>
             <div className="regate">
@@ -115,6 +84,44 @@ export default function FormCompleted() {
               </div>
             </div>
           </form>
+        </div>
+        <div>
+        <div className="resultados">
+        <div className="topa">
+          <div className="txt">
+            <h3 className="resulta">EMISIONES DE CO<sub>2</sub> DE LA PLANTA:</h3>
+            <p>Espesor del concreto: {espesor}</p>
+          </div>
+          <div className="rst">
+            <h3 className="resulta">{planta.toFixed(2)} kgCO<sub>2</sub>e</h3>
+            <p>ANUALES</p>
+          </div>
+        </div>
+      </div>
+      <div className="resultados">
+        <div className="topa">
+          <div className="txt">
+            <h3 className="resulta">EMISIONES DE CO<sub>2</sub> DE MUROS:</h3>
+            <p>Tipo de muro: {muros}</p>
+          </div>
+          <div className="rst">
+            <h3 className="resulta">{resultadoMuros.toFixed(2)} kgCO<sub>2</sub>e</h3>
+            <p>ANUALES</p>
+          </div>
+        </div>
+      </div>
+      <div className="resultados">
+        <div className="topa">
+          <div className="txt">
+            <h3 className="resulta">EMISIONES DE CO<sub>2</sub> DE PISOS:</h3>
+          </div>
+          <div className="rst">
+            <h3 className="resulta">{resultadoPisos.toFixed(2)} kgCO<sub>2</sub>e</h3>
+            <p>ANUALES</p>
+          </div>
+        </div>
+      </div>
+          {/*<img src="/SECO-CON-LLUVIAS-PLANO.png" alt="" title="" className="img-responsive" />*/}
         </div>
       </div>
       {/* 
