@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import Head from "next/head";
-
 import styles from "../styles/styles.module.scss";
 import FormCard from "../components/FormCard";
 import {
@@ -12,13 +11,13 @@ import {
   PersonalInfo,
   TipoAhorro,
   Kilowatts,
-  Radiacion,
-  Personas,
   Predio,
   Acceso,
   Arboles
 } from "../components/Forms";
 import FormCompleted from "../components/FormCompleted";
+import { Canvas, useFrame } from '@react-three/fiber';
+import Box from "../components/Box";
 
 const App = () => {
   const [formStep, setFormStep] = useState(0);
@@ -31,9 +30,17 @@ const App = () => {
         <title>DISEÑANDO MI CASA - Instituto Mexicano del Cemento y del Concreto A.C.</title>
         <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;700&display=swap" rel="stylesheet" /> 
       </Head>
+      
       <FormCard currentStep={formStep} prevFormStep={prevFormStep}>
         {formStep >= 0 && (
-          <PersonalInfo formStep={formStep} nextFormStep={nextFormStep} />
+          <>
+            <Canvas>
+              <ambientLight />
+              <pointLight position={[10, 10, 10]} />
+              <Box position={[0, 0, 0]} />
+            </Canvas>
+            <PersonalInfo formStep={formStep} nextFormStep={nextFormStep} />
+          </>
         )}
         {formStep >= 1 && (
           <BillingInfo formStep={formStep} nextFormStep={nextFormStep} />
