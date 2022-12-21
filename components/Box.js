@@ -12,13 +12,14 @@ export default function Box(props) {
   return (
     <mesh
       {...props}
+      rotation={[Math.PI / 1, 1, 2]}
       ref={ref}
-      scale={clicked ? 3.5 : 1}
+      scale={clicked ? 1 : 3.5}
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+      <meshStandardMaterial color={hovered ? 'gray' : 'orange'} />
     </mesh>
   );
 }

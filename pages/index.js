@@ -35,7 +35,8 @@ const App = () => {
         {formStep >= 0 && (
           <>
             <Canvas>
-              <ambientLight />
+              <ambientLight intensity={0.1} />
+              <directionalLight />
               <pointLight position={[10, 10, 10]} />
               <Box position={[0, 0, 0]} />
             </Canvas>
